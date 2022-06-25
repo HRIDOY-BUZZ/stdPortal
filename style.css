@@ -1,0 +1,327 @@
+body {
+  /* font-family: 'Pacifico', cursive; */
+  font-family: "Roboto", sans-serif;
+  /* overflow: hidden; */
+}
+.no-text-decoration{
+  text-decoration: none !important;
+  color: inherit;
+}
+.no-text-decoration:hover{
+  color: inherit;
+}
+.font-1 {
+  font-family: "Pacifico", cursive;
+}
+.common-color {
+  color: #007189;
+}
+.common-background {
+  background-color: #1c1c1ce6;
+  color: white;
+}
+.common-background-2 {
+  background-color: #007189;
+  color: white;
+}
+.common-border {
+  border: 2px solid #007189;
+}
+.link-no-style a {
+  text-decoration: none;
+  color: white;
+}
+.link-no-style ul {
+  list-style-type: none;
+}
+.custom-btn-1 {
+  border-radius: 10px;
+  background-color: #007189;
+  color: white;
+  padding: 7px 30px;
+  border: 2px solid #007189;
+  transition: color 0.2s ease-in, background-color 0.2s ease-in;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.custom-btn-1:hover {
+  color: #007189;
+  background-color: transparent;
+}
+.log-in-img img {
+  width: 100%;
+}
+.top-bar-padding {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+/*-------------------------------
+side bar 
+----------------------------------*/
+.header-container {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.sidebar {
+  position: fixed;
+  top: 55px;
+  left: 0;
+  height: 100%;
+  overflow-y: scroll;
+  width: 80px;
+  padding: 6px 30px;
+  transition: all 0.4s ease-in;
+}
+.sidebar.active {
+  width: 320px;
+}
+.sidebar .logo_content .logo {
+  opacity: 0;
+}
+.sidebar.active .logo_content .logo {
+  pointer-events: none;
+  opacity: 1;
+}
+.sidebar-main-content {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s ease-in-out, opacity 0.5s ease-in;
+}
+.sidebar-main-content.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sidebar #bar-btn {
+  display: none;
+}
+.logo_name {
+  display: none;
+}
+.sidebar ul {
+  margin-top: 20px;
+}
+.sidebar ul li {
+  position: relative;
+  /* height: 55px; */
+  width: 100%;
+  margin: 0 5px;
+  list-style: none;
+  line-height: 55px;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.3s ease-in;
+}
+.sidebar.active ul li a:hover {
+  color: #007189 !important;
+  background-color: white;
+}
+.sidebar ul li a i {
+  height: 55px;
+  min-width: 40px;
+  border-radius: 10px;
+  line-height: 55px;
+  text-align: center;
+}
+.sub-menu li a {
+  justify-content: center;
+}
+.sub-menu {
+  display: block;
+  background-color: #1c1c1cc0;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+.sub-menu.close {
+  display: none;
+}
+.log-out {
+  text-decoration: none;
+  text-align: center;
+  border-radius: 10px;
+  width: 100%;
+}
+.log-out:hover {
+  color: #007189 !important;
+  background-color: white;
+}
+.sidebar .profile_content .profile {
+  position: relative;
+  padding: 10px 6px;
+}
+.profile_details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.profile_details img {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+#log_out {
+  /* position: absolute; */
+  /* left: 88%; */
+  /* bottom: 5px; */
+  /* transform: translateX(-50%); */
+  line-height: 55px;
+  font-size: 25px;
+  border-radius: 12px;
+  /* display: flex; */
+}
+
+.home-container {
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 80px);
+  left: 80px;
+  top: 0%;
+  transition: all 0.4s ease-in;
+}
+.home-container.active-2 {
+  width: calc(100% - 320px);
+  left: 320px;
+}
+
+/*----------------------------------------------------
+card style 
+-----------------------------------------------*/
+.dash-card-style {
+  border-radius: 12px;
+  color: white;
+  transition: all 0.3s ease;
+}
+.dash-card-style:hover {
+  box-shadow: 5px 10px 8px #888888;
+}
+
+/*-----------------------------------------------
+student page style
+---------------------------------------------*/
+.profile-image img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+}
+.common-card {
+  background-color: #eee;
+  color: #007189;
+  border-radius: 12px;
+  padding: 30px 30px;
+  transition: all 0.3s ease;
+}
+.common-card-2 {
+  background-color: #eee;
+  color: #007189;
+  border-radius: 12px;
+  padding: 30px 30px;
+}
+.common-card:hover {
+  box-shadow: 5px 10px 8px #888888;
+}
+.mini-card {
+  background-color: rgb(254, 169, 0);
+  padding: 5px 10px;
+  height: 36px;
+  border-radius: 5px;
+}
+
+.file-upload {
+  border: 3px dashed black;
+  width: 50%;
+}
+.exam-view {
+  width: 700px;
+  height: 500px;
+}
+
+#calendar {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* // controls height */
+.fc-scroller.fc-day-grid-container {
+  height: 70vh !important;
+  overflow: hidden;
+}
+.fc-scroller > .fc-day-grid,
+.fc-scroller > .fc-time-grid {
+  height: 100vh !important;
+}
+.fc-day-grid.fc-unselectable {
+  height: 100% !important;
+}
+
+.fc-basic-view .fc-body .fc-row {
+  min-height: 4em;
+  height: calc(100% / 6) !important;
+}
+/*--------------------------------------------------
+admin style 
+----------------------------------------------------*/
+.delete-edit-container {
+  cursor: pointer;
+}
+/* ------------------------------------- 
+media query
+----------------------------------------*/
+@media screen and (max-width: 688px) {
+  .home-container {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 80px);
+    left: 80px;
+    top: 0%;
+    opacity: 1;
+    visibility: visible;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    transition: all 0.4s ease-in;
+  }
+  .home-container.active-2 {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .exam-view {
+    width: 100%;
+    height: 500px;
+  }
+  .file-upload {
+    border: 3px dashed black;
+    width: 100%;
+  }
+
+  .sidebar #bar-btn {
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 50%;
+    font-size: 22px;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    transform: translateX(-25%);
+  }
+  .sidebar.active #bar-btn {
+    left: 90%;
+  }
+  #header-nav {
+    display: none;
+  }
+  .sidebar {
+    top: 0px;
+  }
+  .logo_name {
+    display: block;
+  }
+}
