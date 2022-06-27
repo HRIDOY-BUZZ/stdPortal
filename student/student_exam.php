@@ -11,7 +11,8 @@
             <h1 class="common-background-2 p-2 text-center">Exams</h1>
             <div class="py-4 mt-4 text-center">
                 <h3>CSE 101 Mid Exam</h3>
-                <iframe class="border border-3 border-dark exam-view" style="border: none;" src="http://localhost/stdPortal/images/dummy.pdf#toolbar=0"></iframe>
+                <iframe class="border border-3 border-dark exam-view" style="border: none;" 
+                src="<?php echo $_SERVER['REMOTE_HOST'].'/images/dummy.pdf'; ?>#toolbar=0"></iframe>
             </div>
             <form class="text-center" action="" method="">
                 <div class="file-upload text-start mx-auto">
