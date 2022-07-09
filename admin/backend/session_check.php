@@ -4,8 +4,4 @@
     session_start();
     if($_SESSION['user'] != 'admin')
         header('Location: /');
-    else
-    {
-        echo 'ADMIN';
-    }
 ?>

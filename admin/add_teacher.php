@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "admin_head.php";?>
+    <?php 
+        include "admin_head.php";
+        include "backend/add_teacher.php";
+    ?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">
@@ -10,7 +13,7 @@
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Add Teacher</h1>
 
-                <form class="w-75 mx-auto" action="backend/add_teacher.php" method="post">
+                <form class="w-75 mx-auto" action="" method="POST" enctype="multipart/form-data">
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control" name="name" id="name" placeholder=" " required>
                         <label for="name">Name</label>
