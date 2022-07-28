@@ -34,8 +34,9 @@
         {
             $error = "";
             $teacher_pic = $pic_val[1];
-            $sql = "INSERT INTO `Teachers`(`name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`) 
-                    VALUES ('$name','$f_name','$m_name', '$teacher_pic', '$nid','$bid','$reg_no','$gender','$blood','$religion','$pre_address','$par_address','$phone','$email','$interest')";
+
+            $sql = "INSERT INTO `Users`(`user_type`, `name`, `email`, `password`) 
+                    VALUES ('teacher','$name','$email','12345678')";
             
             if(!mysqli_query($conn, $sql))
             {
@@ -43,7 +44,17 @@
             }
             else
             {
-                $success = 0;
+                $sql = "INSERT INTO `Teachers`(`name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`) 
+                    VALUES ('$name','$f_name','$m_name', '$teacher_pic', '$nid','$bid',(SELECT `id` FROM `Users` WHERE `email` LIKE '$email'),'$gender','$blood','$religion','$pre_address','$par_address','$phone','$email','$interest')";
+            
+                if(!mysqli_query($conn, $sql))
+                {
+                    $error = "Database Error! Try Again...";
+                }
+                else
+                {
+                    $success = 1;
+                }
             }
         }
     }

@@ -1,9 +1,11 @@
 <?php
     function save_image($name, $destination, $file)
     {
-        $uploadOk = false;
+        $uploadOK = 0;
         $error = false;
         $title = "";
+        // echo "Value: ".$uploadOK;
+        // exit;
         if(isset($file['name']) && $file['name'] != "")
         {
             $target_file = $destination . basename($file["name"]);
@@ -13,12 +15,12 @@
             if($check !== false)
             {
                 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
-                    $uploadOk = false;
+                    $uploadOk = 0;
                 else
-                    $uploadOk = true;
+                    $uploadOk = 1;
             }
             else
-                $uploadOk = false;
+                $uploadOk = 0;
 
             if($uploadOK)
             {
@@ -30,8 +32,8 @@
                 }
             }
         }
-
         $value = array($error, $title);
+        dd($value);
         return $value;
     }
 
