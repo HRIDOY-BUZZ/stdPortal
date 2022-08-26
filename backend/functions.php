@@ -1,7 +1,7 @@
 <?php
     function save_image($name, $destination, $file)
     {
-        $uploadOK = 0;
+        $upload = 0;
         $error = false;
         $title = "";
         // echo "Value: ".$uploadOK;
@@ -11,18 +11,23 @@
             $target_file = $destination . basename($file["name"]);
             $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
             $check = getimagesize($file["tmp_name"]);
-
+            // dd($check);
+            // dd($imageFileType);
             if($check !== false)
             {
-                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" )
-                    $uploadOk = 0;
+                
+                if($imageFileType == 'jpg' || $imageFileType == 'png' || $imageFileType == 'jpeg' || $imageFileType == 'gif')
+                {
+                    $upload = 1;
+                    // echo "Type = ".$imageFileType." Value = ".$upload."<br>";
+                }
                 else
-                    $uploadOk = 1;
+                    $upload = 0;
             }
             else
-                $uploadOk = 0;
+                $upload = 0;
 
-            if($uploadOK)
+            if($upload)
             {
                 $error = false;
                 $title = $name."_".time().".".$imageFileType;
@@ -33,7 +38,7 @@
             }
         }
         $value = array($error, $title);
-        dd($value);
+        // dd($value);
         return $value;
     }
 

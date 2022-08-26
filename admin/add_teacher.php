@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="number" class="form-control" name="nid" id="n_id" placeholder=" " required>
+                        <input type="number" class="form-control" name="nid" id="n_id" placeholder="" min="10000000000" max="99999999999999" required>
                         <label for="n_id">NID No</label>
                     </div>
 
