@@ -30,8 +30,8 @@
             if($upload)
             {
                 $error = false;
-                $title = $name."_".time().".".$imageFileType;
-                if (!move_uploaded_file($files["tmp_name"], $destination.$title)) {
+                $title = $name.".".$imageFileType;
+                if (!copy($file["tmp_name"], $destination.$title)) {
                     $error = true;
                     $title = "";
                 }
