@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "admin_head.php";?>
+<?php 
+    include "admin_head.php";
+    include "../backend/functions.php";
+    include "backend/teacher_list.php";
+?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">
@@ -10,42 +14,35 @@
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Teacher List</h1>
             <div class="my-4">
-                <div class="common-card row my-2 justify-content-between align-items-center">
-                    <div class="col col-10 row justify-content-evenly align-items-center">
-                        <div class="col col-8 col-lg-2">
-                            <img class="w-100" src="../images/profile.jpg" alt="">
+                <?php
+                    if(!empty($tchrs))
+                    {
+                        foreach($tchrs as $t)
+                        {
+                ?>
+                        <div class="common-card row my-2 justify-content-between align-items-center">
+                            <div class="col col-10 row justify-content-evenly align-items-center">
+                                <div class="col col-8 col-lg-2">
+                                    <img class="w-100" src="../images/profile.jpg" alt="">
+                                </div>
+                                <div class="col col-8 col-lg-2">
+                                    <p><span class="fw-bold pe-1">Name:</span><?php echo $t['name']; ?></p>
+                                </div>
+                                <div class="col col-8 col-lg-2">
+                                    <p><span class="fw-bold pe-1">Teacher Id:</span><?php echo $t['tchr_id']; ?></p>
+                                </div>
+                            </div>
+                            <div class="col col-2 delete-edit-container">
+                                <form method="post" style="display: contents;width: fit-content;">
+                                    <button class="btn text-danger"><i class="fas fa-trash-alt px-0 px-lg-2"></i></button>
+                                </form>
+                                <a class="no-text-decoration" href="../admin/edit_teacher.php"><i class="fas fa-edit"></i></a>
+                            </div>
                         </div>
-                        <div class="col col-8 col-lg-2">
-                            <p><span class="fw-bold pe-1">Name:</span>Jalil hossain</p>
-                        </div>
-                        <div class="col col-8 col-lg-2">
-                            <p><span class="fw-bold pe-1">Teacher Id:</span>5649684616</p>
-                        </div>
-                    </div>
-                    <div class="col col-2 delete-edit-container">
-                        <a class="no-text-decoration" href=""><i class="fas fa-trash-alt px-0 px-lg-2"></i></a>
-                        <a class="no-text-decoration" href="../admin/edit_teacher.php"><i class="fas fa-edit"></i></a>
-                    </div>
-                </div>
-
-                <div class="common-card row my-2 justify-content-between align-items-center">
-                    <div class="col col-10 row justify-content-evenly align-items-center">
-                        <div class="col col-8 col-lg-2">
-                            <img class="w-100" src="../images/profile.jpg" alt="">
-                        </div>
-                        <div class="col col-8 col-lg-2">
-                            <p><span class="fw-bold pe-1">Name:</span>kamal hossain</p>
-                        </div>
-                        <div class="col col-8 col-lg-2">
-                            <p><span class="fw-bold pe-1">Teacher Id:</span>8953849</p>
-                        </div>
-                    </div>
-                    <div class="col col-2 delete-edit-container">
-                        <a class="no-text-decoration" href=""><i class="fas fa-trash-alt px-0 px-lg-2"></i></a>
-                        <a class="no-text-decoration" href="../admin/edit_teacher.php"><i class="fas fa-edit"></i></a>
-                    </div>
-                </div>
-            </div>
+                <?php
+                        }
+                    }
+                ?>
 
         </div>
     </section>
