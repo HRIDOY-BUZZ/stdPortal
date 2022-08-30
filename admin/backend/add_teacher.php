@@ -25,10 +25,10 @@
         $pic_title  = $nid;
         $dest       = $_SERVER["DOCUMENT_ROOT"]."/images/teacher/";
         $pic_val= save_image($pic_title, $dest, $pic_file);
-
-        if($pic_val[0] === 1)
+        // dd($pic_val);
+        if($pic_val[0] === true)
         {
-            $error = "Invalid Image!";
+            $error = "Invalid Image! Try Again...";
         }
         else
         {

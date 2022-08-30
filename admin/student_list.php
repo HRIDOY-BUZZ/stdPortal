@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "admin_head.php";?>
+<?php 
+    include "admin_head.php";
+    include "../backend/functions.php";
+?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">

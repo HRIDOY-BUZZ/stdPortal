@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php 
-        include "admin_head.php";
-        include "../backend/functions.php";
-        include "backend/add_teacher.php";
-    ?>
+<?php 
+    include "admin_head.php";
+    include "../backend/functions.php";
+    include "backend/add_teacher.php";
+?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">
