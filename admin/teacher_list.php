@@ -14,6 +14,14 @@
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Teacher List</h1>
             <div class="my-4">
+                <div class="container alerts">
+                    <?php
+                    if($msg != "")
+                    {
+                        echo message($type, $msg);
+                    }
+                    ?>
+                </div>
                 <?php
                     if(!empty($tchrs))
                     {
@@ -34,9 +42,13 @@
                             </div>
                             <div class="col col-2 delete-edit-container">
                                 <form method="post" style="display: contents;width: fit-content;">
-                                    <button class="btn text-danger"><i class="fas fa-trash-alt px-0 px-lg-2"></i></button>
+                                    <button type="submit" name="delete" id="delete" class="btn text-danger" value="<?php echo $t['id'] ?>">
+                                        <i class="fas fa-trash-alt px-0 px-lg-2"></i>
+                                    </button>
                                 </form>
-                                <a class="no-text-decoration" href="../admin/edit_teacher.php"><i class="fas fa-edit"></i></a>
+                                <a class="no-text-decoration" href="../admin/edit_teacher.php?id=<?php echo $t['id']; ?>">
+                                    <i class="fas fa-edit"></i>
+                                </a>
                             </div>
                         </div>
                 <?php
