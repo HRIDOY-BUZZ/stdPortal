@@ -3,8 +3,6 @@
     $success = 0;
     if($_POST['submit'])
     {
-        // dd($_FILES);
-
         $name       = $_POST['name'];
         $email      = $_POST['email'];
         $phone      = $_POST['phone'];
@@ -25,10 +23,10 @@
         $pic_title  = $nid;
         $dest       = $_SERVER["DOCUMENT_ROOT"]."/images/teacher/";
         $pic_val= save_image($pic_title, $dest, $pic_file);
-
-        if($pic_val[0] === 1)
+        // dd($pic_val);
+        if($pic_val[0] === true)
         {
-            $error = "Invalid Image!";
+            $error = "Invalid Image! Try Again...";
         }
         else
         {
@@ -36,7 +34,7 @@
             $teacher_pic = $pic_val[1];
 
             $sql = "INSERT INTO `Users`(`user_type`, `name`, `email`, `password`) 
-                    VALUES ('student','$name','$email','12345678')";
+                    VALUES ('teacher','$name','$email','12345678')";
             
             if(!mysqli_query($conn, $sql))
             {
@@ -44,7 +42,7 @@
             }
             else
             {
-                $sql = "INSERT INTO `Students`(`name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`) 
+                $sql = "INSERT INTO `Teachers`(`name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`) 
                     VALUES ('$name','$f_name','$m_name', '$teacher_pic', '$nid','$bid',(SELECT `id` FROM `Users` WHERE `email` LIKE '$email'),'$gender','$blood','$religion','$pre_address','$par_address','$phone','$email','$interest')";
             
                 if(!mysqli_query($conn, $sql))

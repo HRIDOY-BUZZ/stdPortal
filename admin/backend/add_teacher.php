@@ -28,7 +28,7 @@
         // dd($pic_val);
         if($pic_val[0] === true)
         {
-            $error = "Invalid Image!";
+            $error = "Invalid Image! Try Again...";
         }
         else
         {
