@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 26, 2022 at 11:25 PM
+-- Generation Time: Aug 30, 2022 at 05:34 AM
 -- Server version: 8.0.30-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2
 
@@ -138,10 +138,11 @@ CREATE TABLE `Std_schedule` (
 CREATE TABLE `Students` (
   `id` int NOT NULL,
   `name` varchar(100) NOT NULL,
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `father` varchar(100) NOT NULL,
   `mother` varchar(100) NOT NULL,
-  `nid` int DEFAULT NULL,
-  `birthreg` int DEFAULT NULL,
+  `nid` bigint DEFAULT NULL,
+  `birthreg` bigint DEFAULT NULL,
   `std_id` int NOT NULL,
   `gender` varchar(10) NOT NULL,
   `blood` varchar(5) DEFAULT NULL,
@@ -203,7 +204,7 @@ CREATE TABLE `Teachers` (
 --
 
 INSERT INTO `Teachers` (`id`, `name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
-(4, 'shgxfdg', 'xfghxfdghn', 'fghjcfgjh', '', 345234523452345, 345123452345234523, 6, '1', 'fgjh', 'dfghfh', 'adfvasd', 'asdfas', '01677472329', 'hrid.buzz@gmail.com', '', '2022-08-26 21:45:25', '2022-08-26 21:45:25');
+(7, 'test-hotel', 'fcghfxcgh', 'fghfcgh', '56785678567.jpg', 56785678567, 7685785678567853, 10, '1', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01239045678', 'dfgds@dfg.fg', '', '2022-08-30 04:24:06', '2022-08-30 04:24:06');
 
 -- --------------------------------------------------------
 
@@ -227,8 +228,11 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`id`, `user_type`, `name`, `email`, `password`, `status`, `updated_at`, `created_at`) VALUES
-(1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-09 17:35:39', '2022-07-09 17:35:39'),
-(6, 'teacher', 'shgxfdg', 'hrid.buzz@gmail.com', '12345678', 1, '2022-08-26 21:45:25', '2022-08-26 21:45:25');
+(1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-09 11:35:39', '2022-07-09 11:35:39'),
+(6, 'teacher', 'shgxfdg', 'hrid.buzz@gmail.com', '12345678', 1, '2022-08-26 15:45:25', '2022-08-26 15:45:25'),
+(7, 'teacher', 'xdfgh', 'example@email.com', '12345678', 1, '2022-08-30 03:58:45', '2022-08-30 03:58:45'),
+(8, 'teacher', 'xdfgh', 'super@admin.com', '12345678', 1, '2022-08-30 04:20:48', '2022-08-30 04:20:48'),
+(10, 'teacher', 'test-hotel', 'dfgds@dfg.fg', '12345678', 1, '2022-08-30 04:24:06', '2022-08-30 04:24:06');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +316,6 @@ ALTER TABLE `Tchr_question`
 ALTER TABLE `Teachers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `tchr_id` (`tchr_id`),
-  ADD UNIQUE KEY `phone` (`phone`),
   ADD UNIQUE KEY `email` (`email`),
   ADD UNIQUE KEY `nid` (`nid`),
   ADD UNIQUE KEY `birthreg` (`birthreg`);
@@ -386,13 +389,13 @@ ALTER TABLE `Tchr_question`
 -- AUTO_INCREMENT for table `Teachers`
 --
 ALTER TABLE `Teachers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
