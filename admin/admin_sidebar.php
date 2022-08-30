@@ -80,7 +80,7 @@
         </div>
         <!-- d-flex align-items-center justify-content-start -->
         <div id="log_out" class="">
-            <a class="log-out py-2 px-4" href="">Log Out<i class="fas fa-sign-out ps-3"></i></a>
+            <a class="log-out py-2 px-4" href="/backend/logout.php">Log Out<i class="fas fa-sign-out ps-3"></i></a>
         </div>
         </div>
 </div>
