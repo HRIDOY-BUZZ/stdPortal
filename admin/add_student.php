@@ -3,7 +3,7 @@
 <?php 
     include "admin_head.php";
     include "../backend/functions.php";
-    include "backend/add_teacher.php";
+    include "backend/add_student.php";
 ?>
 <body class="">
 <?php include "../header_nav.php";?>
@@ -13,66 +13,73 @@
     <section id="home-container"  class="home-container active-2">
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Add Student</h1>
-
-                <form class="w-75 mx-auto" action="" method="">
+            <div class="container alerts">
+                    <?php
+                    if($error != "")
+                    {
+                        echo message('error', $error);
+                    }
+                    else if($success == 1)
+                    {
+                        echo message('success', 'New Student Added Successfully!');
+                    }
+                    ?>
+                </div>
+                <form class="w-75 mx-auto" action="" method="post" enctype="multipart/form-data">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="student_name" id="name" placeholder=" ">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="">
                         <label for="name">Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="f_name" id="f_name" placeholder=" ">
+                        <input type="text" class="form-control" name="fname" id="f_name" placeholder="">
                         <label for="f_name">Father's Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="m_name" id="m_name" placeholder=" ">
+                        <input type="text" class="form-control" name="mname" id="m_name" placeholder="">
                         <label for="m_name">Mother's Name</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="n_id" id="n_id" placeholder=" ">
+                        <input type="text" class="form-control" name="nid" id="n_id" placeholder="">
                         <label for="n_id">NID No</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="b_id" id="b_id" placeholder=" ">
+                        <input type="text" class="form-control" name="bid" id="b_id" placeholder="">
                         <label for="b_id">Birth ID</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="tel" class="form-control" name="phone" id="phone" placeholder=" ">
+                        <input type="tel" class="form-control" name="phone" id="phone" placeholder="">
                         <label for="phone">Phone Number</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control" name="email" id="email" placeholder=" ">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="">
                         <label for="email">Email address</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder=" ">
+                        <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="">
                         <label for="reg_no">Reg No</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="std_id" id="std_id" placeholder=" ">
-                        <label for="std_id">Student Id</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <select class="form-select py-2" id="gender" name="gender" >
+                        <select class="form-select py-2" id="gender" name="gender">
                             <option selected>Gender</option>
                             <option value="1">Male</option>
                             <option value="2">Female</option>
                         </select>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="blood" id="blood" placeholder=" ">
+                        <input type="text" class="form-control" name="blood" id="blood" placeholder="">
                         <label for="blood">Blood Group</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="religion" id="religion" placeholder=" ">
+                        <input type="text" class="form-control" name="religion" id="religion" placeholder="">
                         <label for="religion">Religion</label>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="pre_address" id="pre_address" placeholder=" ">
+                        <input type="text" class="form-control" name="pre_address" id="pre_address" placeholder="">
                         <label for="pre_address">Present Address</label>
                     </div>
 
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="par_address" id="par_address" placeholder=" ">
+                        <input type="text" class="form-control" name="par_address" id="par_address" placeholder="">
                         <label for="par_address">Parmanent Address</label>
                     </div>
 

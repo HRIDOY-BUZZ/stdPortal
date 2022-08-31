@@ -6,11 +6,11 @@
     <section class="header-container">
         <?php include "admin_sidebar.php";?>
     </section>
-    <section id="home-container"  class="home-container active-2"">
+    <section id="home-container"  class="home-container active-2">
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Edit Student</h1>
 
-                <form class="w-75 mx-auto" action="" method="">
+                <form class="w-75 mx-auto" action=""  method="POST" enctype="multipart/form-data">
                     <div class="mb-3">
                         <p class="fw-bold">Name</p>
                         <input type="text" class="form-control" name="student_name" id="name" placeholder=" ">
@@ -26,32 +26,27 @@
 
                     <div class="mb-3">
                         <p class="fw-bold">Father's Name</p>
-                        <input type="text" class="form-control" name="f_name" id="f_name" placeholder=" ">
+                        <input type="text" class="form-control" name="fname" id="f_name" placeholder=" ">
                     </div>
 
                     <div class="mb-3">
                         <p class="fw-bold">Mother's Name</p>
-                        <input type="text" class="form-control" name="m_name" id="m_name" placeholder=" ">
+                        <input type="text" class="form-control" name="mname" id="m_name" placeholder=" ">
                     </div>
 
                     <div class="mb-3">
                         <p class="fw-bold">NID No</p>
-                        <input type="text" class="form-control" name="n_id" id="n_id" placeholder=" ">
+                        <input type="text" class="form-control" name="nid" id="n_id" placeholder=" ">
                     </div>
 
                     <div class="mb-3">
                         <p class="fw-bold">Birth ID</p>
-                        <input type="text" class="form-control" name="b_id" id="b_id" placeholder=" ">
+                        <input type="text" class="form-control" name="bid" id="b_id" placeholder=" ">
                     </div>
 
                     <div class="mb-3">
                         <p class="fw-bold">Reg No</p>
                         <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder=" ">
-                    </div>
-
-                    <div class="mb-3">
-                        <p class="fw-bold">Student Id</p>
-                        <input type="text" class="form-control" name="std_id" id="std_id" placeholder=" ">
                     </div>
 
                     <div class="mb-3">
@@ -93,10 +88,6 @@
                         <textarea class="form-control" placeholder="interest" name="interest" id="interest" style="height: 100px"></textarea>
                     </div>
 
-                    <div class="mb-3">
-                        <p class="fw-bold">Documents</p>
-                        <textarea class="form-control" placeholder="documents" name="documents" id="documents" style="height: 100px"></textarea>
-                    </div>
                     <div class="d-flex flex-column flex-md-row align-items-center">
                         <p class="fw-bold mb-0 p-2">Please Uoload a Picture</p>
                         <input class="p-2 mx-auto" type="file" id="std_pic" name="std_pic">
