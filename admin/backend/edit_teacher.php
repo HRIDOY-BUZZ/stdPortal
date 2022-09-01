@@ -9,6 +9,13 @@
         $query  =   mysqli_query($conn, $sql);
         $tchr   =   mysqli_fetch_array($query);
 
-        // dd($tchr);
+        if(isset($_POST['submit']))
+        {
+            if(!isset($_POST['teacher_pic']))
+            {
+                echo $tchr['image'];
+            }
+            dd($_POST);
+        }
     }
 ?>

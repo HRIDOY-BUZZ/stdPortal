@@ -21,7 +21,7 @@
                     }
                 ?>
             </div>
-            <form class="w-75 mx-auto" action="" method="">
+            <form class="w-75 mx-auto" action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <p class="fw-bold">Name</p>
                     <input type="text" class="form-control" name="teacher_name" id="name" value="<?php echo $tchr['name']; ?>">
@@ -105,6 +105,6 @@
             </form>
         </div>
     </section>
-<?php include '../script.php';?>
+    <?php include '../script.php';?>
 </body>
 </html>
