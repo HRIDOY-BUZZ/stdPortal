@@ -13,7 +13,7 @@
     <section id="home-container"  class="home-container active-2">
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Add Student</h1>
-            <div class="container alerts">
+                <div class="container alerts">
                     <?php
                     if($error != "")
                     {
