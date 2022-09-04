@@ -24,7 +24,7 @@
             <form class="w-75 mx-auto" action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <p class="fw-bold">Name</p>
-                    <input type="text" class="form-control" name="teacher_name" id="name" value="<?php echo $tchr['name']; ?>">
+                    <input type="text" class="form-control" name="name" id="name" value="<?php echo $tchr['name']; ?>">
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">Email</p>
@@ -36,11 +36,11 @@
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">Father's Name</p>
-                    <input type="text" class="form-control" name="fname" id="f_name" value="<?php echo $tchr['father']; ?>">
+                    <input type="text" class="form-control" name="f_name" id="f_name" value="<?php echo $tchr['father']; ?>">
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">Mother's Name</p>
-                    <input type="text" class="form-control" name="mname" id="m_name" value="<?php echo $tchr['mother']; ?>">
+                    <input type="text" class="form-control" name="m_name" id="m_name" value="<?php echo $tchr['mother']; ?>">
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">NID No</p>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">Teacher Id</p>
-                    <input type="text" class="form-control" name="teacher_id" id="teacher_id" value="<?php echo $tchr['tchr_id']; ?>" readonly>
+                    <input type="text" class="form-control" name="tchr_id" id="teacher_id" value="<?php echo $tchr['tchr_id']; ?>" readonly>
                 </div>
                 <div class="mb-3">
                     <p class="fw-bold">Gender</p>
