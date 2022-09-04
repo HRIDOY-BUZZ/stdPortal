@@ -25,8 +25,16 @@
         $pic_title  = $nid;
         $dest       = $_SERVER["DOCUMENT_ROOT"]."/images/teacher/";
         $pic_val= save_image($pic_title, $dest, $pic_file);
-        // dd($pic_val);
-        if($pic_val[0] === true)
+        
+        //CHECKING
+        $sql    =   "SELECT `id`, `email` FROM `Users` WHERE `email` LIKE '$email'";
+        $query  =   mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($query)>0)
+        {
+            $error = "User with this Email already exists. Please try a different one!";
+        }
+        else if($pic_val[0] === true)
         {
             $error = "Invalid Image! Try Again...";
         }

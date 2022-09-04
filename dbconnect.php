@@ -2,7 +2,7 @@
     $host   =   'localhost';
     $db     =   'std_portal';
     $user   =   'root';
-    $pass   =   '@Buzz6157';
+    $pass   =   'root';
 
     $conn = mysqli_connect($host, $user, $pass, $db);
 

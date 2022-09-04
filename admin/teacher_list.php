@@ -42,11 +42,11 @@
                             </div>
                             <div class="col col-2 delete-edit-container">
                                 <form method="post" style="display: contents;width: fit-content;">
-                                    <button type="submit" name="delete" id="delete" class="btn text-danger" value="<?php echo $t['id'] ?>">
+                                    <button type="submit" name="delete" id="delete" class="btn text-danger" value="<?php echo $t['tchr_id']; ?>">
                                         <i class="fas fa-trash-alt px-0 px-lg-2"></i>
                                     </button>
                                 </form>
-                                <a class="no-text-decoration" href="../admin/edit_teacher.php?id=<?php echo $t['id']; ?>">
+                                <a class="no-text-decoration" href="../admin/edit_teacher.php?id=<?php echo $t['tchr_id']; ?>">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </div>

@@ -2,20 +2,20 @@
     $type = "";
     $msg = "";
 
-    $sql    =   "SELECT * FROM `Teachers` WHERE 1";
+    $sql    =   "SELECT * FROM `Students` WHERE 1";
     $query  =   mysqli_query($conn, $sql);
-    $tchrs  =   mysqli_fetch_all($query, MYSQLI_ASSOC);
+    $stdns  =   mysqli_fetch_all($query, MYSQLI_ASSOC);
 
     if(isset($_POST['delete']))
     {
         $id = $_POST['delete'];
-        $sql    =   "DELETE FROM `Teachers` WHERE `tchr_id` = $id";
+        $sql    =   "DELETE FROM `Students` WHERE `std_id` = $id";
         $sql2   =   "DELETE FROM `Users` WHERE `id` = $id";
         if(mysqli_query($conn, $sql))
         {
             mysqli_query($conn, $sql2);
             $type = "success";
-            $msg = "Teacher Deleted Succefully!";
+            $msg = "Student Deleted Succefully!";
         }
         else
         {
