@@ -53,11 +53,11 @@
         {
             $target_file = $destination . basename($file["name"]);
             $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-            $check = getimagesize($file["tmp_name"]);
+            $check = filesize($file["tmp_name"]);
 
             if($check !== false)
             {
-                
+                // dd($FileType);
                 if($FileType == 'pdf')
                 {
                     $upload = 1;
@@ -72,7 +72,9 @@
             {
                 $error = false;
                 $title = $name.".".$FileType;
+                // dd($file);
                 if (!copy($file["tmp_name"], $destination.$title)) {
+                    // dd($title);
                     $error = true;
                     $title = "";
                 }
