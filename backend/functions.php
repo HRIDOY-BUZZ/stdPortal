@@ -42,6 +42,47 @@
         return $value;
     }
 
+    function save_file($name, $destination, $file)
+    {
+        $upload = 0;
+        $error = false;
+        $title = "";
+        // echo "Value: ".$uploadOK;
+        // exit;
+        if(isset($file['name']) && $file['name'] != "")
+        {
+            $target_file = $destination . basename($file["name"]);
+            $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+            $check = getimagesize($file["tmp_name"]);
+
+            if($check !== false)
+            {
+                
+                if($FileType == 'pdf')
+                {
+                    $upload = 1;
+                }
+                else
+                    $upload = 0;
+            }
+            else
+                $upload = 0;
+
+            if($upload)
+            {
+                $error = false;
+                $title = $name.".".$FileType;
+                if (!copy($file["tmp_name"], $destination.$title)) {
+                    $error = true;
+                    $title = "";
+                }
+            }
+        }
+        $value = array($error, $title);
+        // dd($value);
+        return $value;
+    }
+
     function message($type, $msg)
     {
         $class = "";
