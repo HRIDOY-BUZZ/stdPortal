@@ -19,6 +19,7 @@ $error = '';
 
                 $_SESSION['user'] = $result['user_type'];
                 $_SESSION['name'] = $result['name'];
+                $_SESSION['id']   = $result['id'];
                 $loc = $result['user_type']."/".$result['user_type']."_home.php";
                 header("Location: $loc");
             }

@@ -12,7 +12,9 @@
         </ul> -->
         <div class="d-flex text-white align-items-center">
         <img src="../images/profile.jpg" alt="" width="30" height="24" class="d-inline-block align-text-top rounded-circle">
-            <p class="ps-2 mb-0">Rakib Hasan</p>
+            <p class="ps-2 mb-0">
+                <?php echo $_SESSION['name']; ?>
+            </p>
         </div>
         </div>
     </div>

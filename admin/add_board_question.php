@@ -39,8 +39,8 @@
                         <label for="subject">Subject</label>
                     </div>
                     <div class="d-flex flex-column flex-md-row align-items-center">
-                        <p class="fw-bold mb-0 p-2">Upload the question</p>
-                        <input class="p-2 mx-auto" type="file" id="boardq" name="boardq">
+                        <p class="fw-bold mb-0 p-2">Upload the question (PDF Only)</p>
+                        <input class="p-2 mx-auto" type="file" id="boardq" name="boardq" accept="application/pdf">
                     </div>
                     <input name="submit" class="mt-3 mx-auto fw-bold custom-btn-1" type="submit" value="submit">
                 </form>

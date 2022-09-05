@@ -12,7 +12,7 @@
                 <div class="profile_details">
                     <img src="../images/profile.jpg" alt="">
                     <div class="name_job text-center">
-                        <div class="name fw-bold fs-4 py-2">Nazmul Alam</div>
+                        <div class="name fw-bold fs-4 py-2"><?php echo $_SESSION['name']; ?></div>
                         <div class="job">Admin</div>
                     </div>
                 </div>
