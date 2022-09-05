@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "admin_head.php";?>
+<?php 
+    include "admin_head.php";
+    include "../backend/functions.php";
+    include "backend/dashboard.php";
+?>
 <body class="overflow-hidden">
 <?php include "../header_nav.php";?>
     <section class="header-container">
@@ -21,7 +25,7 @@
                             <div class="col col-12 col-md-8">
                                 <div class="card-body py-5">
                                     <h3 class="card-title">Total Student</h3>
-                                    <h2 class="card-text">100</h2>
+                                    <h2 class="card-text"><?php echo $std; ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +43,7 @@
                             <div class="col col-12 col-md-8">
                                 <div class="card-body py-5">
                                     <h3 class="card-title">Total Teacher</h3>
-                                    <h2 class="card-text">10</h2>
+                                    <h2 class="card-text"><?php echo $tchr; ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +61,7 @@
                             <div class="col col-12 col-md-8">
                                 <div class="card-body py-5">
                                     <h3 class="card-title">Total Courses</h3>
-                                    <h2 class="card-text">5</h2>
+                                    <h2 class="card-text"><?php echo $crs; ?></h2>
                                 </div>
                             </div>
                         </div>
