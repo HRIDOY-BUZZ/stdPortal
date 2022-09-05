@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1deb5ubuntu1
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 30, 2022 at 05:34 AM
--- Server version: 8.0.30-0ubuntu0.22.04.1
--- PHP Version: 8.1.2
+-- Generation Time: Sep 05, 2022 at 12:25 PM
+-- Server version: 10.3.35-MariaDB-log-cll-lve
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `std_portal`
+-- Database: `samvqsub_std`
 --
 
 -- --------------------------------------------------------
@@ -28,14 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Board_Q` (
-  `id` int NOT NULL,
-  `semester` int NOT NULL,
-  `year` int NOT NULL,
-  `course` varchar(10) NOT NULL,
+  `id` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `course` varchar(50) NOT NULL,
   `question` varchar(255) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Board_Q`
+--
+
+INSERT INTO `Board_Q` (`id`, `semester`, `year`, `course`, `question`, `updated_at`, `created_at`) VALUES
+(1, 1, 2022, 'Test Subject', 'Test Subject_1_2022.pdf', '2022-09-05 03:59:21', '2022-09-05 03:59:21');
 
 -- --------------------------------------------------------
 
@@ -44,16 +52,24 @@ CREATE TABLE `Board_Q` (
 --
 
 CREATE TABLE `Courses` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `course_name` varchar(100) NOT NULL,
   `course_code` varchar(10) NOT NULL,
-  `credits` int NOT NULL,
-  `semester` int NOT NULL,
-  `year` int NOT NULL,
-  `duration` int NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `credits` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
+  `year` int(11) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Courses`
+--
+
+INSERT INTO `Courses` (`id`, `course_name`, `course_code`, `credits`, `semester`, `year`, `duration`, `updated_at`, `created_at`) VALUES
+(1, 'test', 't11', 3, 1, 2022, 4, '2022-09-05 05:47:17', '2022-09-05 05:47:17'),
+(2, 'Test-2', 'T32', 4, 2, 2022, 4, '2022-09-05 05:47:41', '2022-09-05 05:47:41');
 
 -- --------------------------------------------------------
 
@@ -62,11 +78,12 @@ CREATE TABLE `Courses` (
 --
 
 CREATE TABLE `Notice` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `notice` varchar(255) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -75,13 +92,21 @@ CREATE TABLE `Notice` (
 --
 
 CREATE TABLE `Results` (
-  `id` int NOT NULL,
-  `course_id` int NOT NULL,
-  `std_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `std_id` int(11) NOT NULL,
   `grade` float NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `highest` float NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Results`
+--
+
+INSERT INTO `Results` (`id`, `course_id`, `std_id`, `grade`, `highest`, `updated_at`, `created_at`) VALUES
+(2, 2, 14, 3.2, 3.9, '2022-09-05 06:13:43', '2022-09-05 06:13:43');
 
 -- --------------------------------------------------------
 
@@ -90,15 +115,15 @@ CREATE TABLE `Results` (
 --
 
 CREATE TABLE `Schedule` (
-  `id` int NOT NULL,
-  `course_id` int NOT NULL,
-  `tchr_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `tchr_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
-  `duration` int NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `duration` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -107,13 +132,13 @@ CREATE TABLE `Schedule` (
 --
 
 CREATE TABLE `Std_exam` (
-  `id` int NOT NULL,
-  `std_id` int NOT NULL,
-  `ques_id` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `std_id` int(11) NOT NULL,
+  `ques_id` int(11) NOT NULL,
   `answer` varchar(255) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -122,12 +147,12 @@ CREATE TABLE `Std_exam` (
 --
 
 CREATE TABLE `Std_schedule` (
-  `id` int NOT NULL,
-  `std_id` int NOT NULL,
-  `schedule` int NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `id` int(11) NOT NULL,
+  `std_id` int(11) NOT NULL,
+  `schedule` int(11) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -136,14 +161,14 @@ CREATE TABLE `Std_schedule` (
 --
 
 CREATE TABLE `Students` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `image` varchar(100) DEFAULT NULL,
   `father` varchar(100) NOT NULL,
   `mother` varchar(100) NOT NULL,
-  `nid` bigint DEFAULT NULL,
-  `birthreg` bigint DEFAULT NULL,
-  `std_id` int NOT NULL,
+  `nid` bigint(20) DEFAULT NULL,
+  `birthreg` bigint(20) DEFAULT NULL,
+  `std_id` int(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `blood` varchar(5) DEFAULT NULL,
   `religion` varchar(20) DEFAULT NULL,
@@ -151,10 +176,17 @@ CREATE TABLE `Students` (
   `parma_addr` text NOT NULL,
   `phone` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `interests` text,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `interests` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Students`
+--
+
+INSERT INTO `Students` (`id`, `name`, `image`, `father`, `mother`, `nid`, `birthreg`, `std_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
+(2, 'Test Student', '236256456345.jpg', 'Al-Amin Islam', 'dsfghsdfg', 236256456345, 3456345634563456, 14, '1', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '123-45-678', 'dfgds@dfg.fgi', '', '2022-09-05 07:32:05', '2022-08-31 04:44:12');
 
 -- --------------------------------------------------------
 
@@ -163,14 +195,14 @@ CREATE TABLE `Students` (
 --
 
 CREATE TABLE `Tchr_question` (
-  `id` int NOT NULL,
-  `tchr_id` int NOT NULL,
-  `course_id` int NOT NULL,
-  `duration` int NOT NULL,
+  `id` int(11) NOT NULL,
+  `tchr_id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `duration` int(11) NOT NULL,
   `question` varchar(255) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -179,14 +211,14 @@ CREATE TABLE `Tchr_question` (
 --
 
 CREATE TABLE `Teachers` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
   `father` varchar(100) NOT NULL,
   `mother` varchar(100) NOT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `nid` bigint DEFAULT NULL,
-  `birthreg` bigint DEFAULT NULL,
-  `tchr_id` int NOT NULL,
+  `nid` bigint(20) DEFAULT NULL,
+  `birthreg` bigint(20) DEFAULT NULL,
+  `tchr_id` int(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `blood` varchar(5) DEFAULT NULL,
   `religion` varchar(20) DEFAULT NULL,
@@ -194,17 +226,17 @@ CREATE TABLE `Teachers` (
   `parma_addr` text NOT NULL,
   `phone` varchar(15) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `interests` text,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `interests` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Teachers`
 --
 
 INSERT INTO `Teachers` (`id`, `name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
-(7, 'test-hotel', 'fcghfxcgh', 'fghfcgh', '56785678567.jpg', 56785678567, 7685785678567853, 10, '1', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01239045678', 'dfgds@dfg.fg', '', '2022-08-30 04:24:06', '2022-08-30 04:24:06');
+(9, 'test_teacher', 'fcghfxcgh', 'fghfcgh', '236256456345.jpg', 236256456345, 3456345634563456, 15, '2', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01999999999', 'example@email.com', '', '2022-09-05 07:31:51', '2022-09-01 10:08:21');
 
 -- --------------------------------------------------------
 
@@ -213,15 +245,15 @@ INSERT INTO `Teachers` (`id`, `name`, `father`, `mother`, `image`, `nid`, `birth
 --
 
 CREATE TABLE `Users` (
-  `id` int NOT NULL,
+  `id` int(11) NOT NULL,
   `user_type` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `Users`
@@ -229,10 +261,8 @@ CREATE TABLE `Users` (
 
 INSERT INTO `Users` (`id`, `user_type`, `name`, `email`, `password`, `status`, `updated_at`, `created_at`) VALUES
 (1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-09 11:35:39', '2022-07-09 11:35:39'),
-(6, 'teacher', 'shgxfdg', 'hrid.buzz@gmail.com', '12345678', 1, '2022-08-26 15:45:25', '2022-08-26 15:45:25'),
-(7, 'teacher', 'xdfgh', 'example@email.com', '12345678', 1, '2022-08-30 03:58:45', '2022-08-30 03:58:45'),
-(8, 'teacher', 'xdfgh', 'super@admin.com', '12345678', 1, '2022-08-30 04:20:48', '2022-08-30 04:20:48'),
-(10, 'teacher', 'test-hotel', 'dfgds@dfg.fg', '12345678', 1, '2022-08-30 04:24:06', '2022-08-30 04:24:06');
+(14, 'student', 'Orlando International Airport', 'dfgds@dfg.fgi', '12345678', 1, '2022-08-31 04:44:12', '2022-08-31 04:44:12'),
+(15, 'teacher', 'PonyoPosari', 'example@email.com', '12345678', 1, '2022-09-01 10:08:20', '2022-09-01 10:08:20');
 
 --
 -- Indexes for dumped tables
@@ -335,78 +365,71 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Board_Q`
 --
 ALTER TABLE `Board_Q`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Courses`
 --
 ALTER TABLE `Courses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Notice`
 --
 ALTER TABLE `Notice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `Results`
 --
 ALTER TABLE `Results`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Schedule`
 --
 ALTER TABLE `Schedule`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Std_exam`
 --
 ALTER TABLE `Std_exam`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Std_schedule`
 --
 ALTER TABLE `Std_schedule`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Students`
 --
 ALTER TABLE `Students`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Tchr_question`
 --
 ALTER TABLE `Tchr_question`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Teachers`
 --
 ALTER TABLE `Teachers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `Users`
 --
 ALTER TABLE `Users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `Results`
---
-ALTER TABLE `Results`
-  ADD CONSTRAINT `Results_fk0` FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`),
-  ADD CONSTRAINT `Results_fk1` FOREIGN KEY (`std_id`) REFERENCES `Students` (`id`);
 
 --
 -- Constraints for table `Schedule`
