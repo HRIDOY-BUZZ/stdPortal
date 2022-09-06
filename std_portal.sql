@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 05, 2022 at 12:25 PM
+-- Generation Time: Sep 06, 2022 at 11:05 AM
 -- Server version: 10.3.35-MariaDB-log-cll-lve
 -- PHP Version: 7.4.30
 
@@ -125,6 +125,13 @@ CREATE TABLE `Schedule` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `Schedule`
+--
+
+INSERT INTO `Schedule` (`id`, `course_id`, `tchr_id`, `date`, `time`, `duration`, `updated_at`, `created_at`) VALUES
+(3, 1, 15, '2022-09-14', '00:34:00', 2, '2022-09-06 08:06:09', '2022-09-06 08:06:09');
+
 -- --------------------------------------------------------
 
 --
@@ -149,10 +156,19 @@ CREATE TABLE `Std_exam` (
 CREATE TABLE `Std_schedule` (
   `id` int(11) NOT NULL,
   `std_id` int(11) NOT NULL,
-  `schedule` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `semester` int(11) NOT NULL,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Std_schedule`
+--
+
+INSERT INTO `Std_schedule` (`id`, `std_id`, `course_id`, `semester`, `updated_at`, `created_at`) VALUES
+(1, 14, 1, 1, '2022-09-06 08:19:49', '2022-09-06 08:19:49'),
+(2, 14, 1, 1, '2022-09-06 08:21:04', '2022-09-06 08:21:04');
 
 -- --------------------------------------------------------
 
@@ -236,7 +252,7 @@ CREATE TABLE `Teachers` (
 --
 
 INSERT INTO `Teachers` (`id`, `name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
-(9, 'test_teacher', 'fcghfxcgh', 'fghfcgh', '236256456345.jpg', 236256456345, 3456345634563456, 15, '2', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01999999999', 'example@email.com', '', '2022-09-05 07:31:51', '2022-09-01 10:08:21');
+(9, 'Test Teacher', 'fcghfxcgh', 'fghfcgh', '236256456345.jpg', 236256456345, 3456345634563456, 15, '2', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01999999999', 'example@email.com', '', '2022-09-06 07:27:20', '2022-09-01 10:08:21');
 
 -- --------------------------------------------------------
 
@@ -262,7 +278,7 @@ CREATE TABLE `Users` (
 INSERT INTO `Users` (`id`, `user_type`, `name`, `email`, `password`, `status`, `updated_at`, `created_at`) VALUES
 (1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-09 11:35:39', '2022-07-09 11:35:39'),
 (14, 'student', 'Orlando International Airport', 'dfgds@dfg.fgi', '12345678', 1, '2022-08-31 04:44:12', '2022-08-31 04:44:12'),
-(15, 'teacher', 'PonyoPosari', 'example@email.com', '12345678', 1, '2022-09-01 10:08:20', '2022-09-01 10:08:20');
+(15, 'teacher', 'Test Teacher', 'example@email.com', '12345678', 1, '2022-09-06 07:27:11', '2022-09-01 10:08:20');
 
 --
 -- Indexes for dumped tables
@@ -318,8 +334,7 @@ ALTER TABLE `Std_exam`
 --
 ALTER TABLE `Std_schedule`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `Std_schedule_fk0` (`std_id`),
-  ADD KEY `Std_schedule_fk1` (`schedule`);
+  ADD KEY `Std_schedule_fk0` (`std_id`);
 
 --
 -- Indexes for table `Students`
@@ -389,7 +404,7 @@ ALTER TABLE `Results`
 -- AUTO_INCREMENT for table `Schedule`
 --
 ALTER TABLE `Schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `Std_exam`
@@ -401,7 +416,7 @@ ALTER TABLE `Std_exam`
 -- AUTO_INCREMENT for table `Std_schedule`
 --
 ALTER TABLE `Std_schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Students`
@@ -432,25 +447,11 @@ ALTER TABLE `Users`
 --
 
 --
--- Constraints for table `Schedule`
---
-ALTER TABLE `Schedule`
-  ADD CONSTRAINT `Schedule_fk0` FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`),
-  ADD CONSTRAINT `Schedule_fk1` FOREIGN KEY (`tchr_id`) REFERENCES `Teachers` (`id`);
-
---
 -- Constraints for table `Std_exam`
 --
 ALTER TABLE `Std_exam`
   ADD CONSTRAINT `Std_exam_fk0` FOREIGN KEY (`std_id`) REFERENCES `Students` (`id`),
   ADD CONSTRAINT `Std_exam_fk1` FOREIGN KEY (`ques_id`) REFERENCES `Tchr_question` (`id`);
-
---
--- Constraints for table `Std_schedule`
---
-ALTER TABLE `Std_schedule`
-  ADD CONSTRAINT `Std_schedule_fk0` FOREIGN KEY (`std_id`) REFERENCES `Students` (`id`),
-  ADD CONSTRAINT `Std_schedule_fk1` FOREIGN KEY (`schedule`) REFERENCES `Schedule` (`id`);
 
 --
 -- Constraints for table `Students`
@@ -462,8 +463,7 @@ ALTER TABLE `Students`
 -- Constraints for table `Tchr_question`
 --
 ALTER TABLE `Tchr_question`
-  ADD CONSTRAINT `Tchr_question_fk0` FOREIGN KEY (`tchr_id`) REFERENCES `Teachers` (`id`),
-  ADD CONSTRAINT `Tchr_question_fk1` FOREIGN KEY (`course_id`) REFERENCES `Courses` (`id`);
+  ADD CONSTRAINT `Tchr_question_fk0` FOREIGN KEY (`tchr_id`) REFERENCES `Teachers` (`id`);
 
 --
 -- Constraints for table `Teachers`
