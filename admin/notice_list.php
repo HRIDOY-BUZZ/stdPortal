@@ -40,7 +40,7 @@
                         </div>
                     </div>
                     <div class="delete-edit-container">
-                    <form method="post" style="display: contents;width: fit-content;">
+                        <form method="post" style="display: contents;width: fit-content;">
                             <button type="submit" name="delete" id="delete" class="btn text-danger" value="<?php echo $n['id']; ?>">
                                 <i class="fas fa-trash-alt px-0 px-lg-2"></i>
                             </button>
