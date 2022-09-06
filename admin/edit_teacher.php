@@ -98,7 +98,7 @@
                     <textarea class="form-control" name="interest" id="interest" style="height: 100px" value="<?php echo $tchr['interests']; ?>""></textarea>
                 </div>
                 <div class="d-flex flex-column flex-md-row align-items-center">
-                    <p class="fw-bold mb-0 p-2">Please Uoload a Picture</p>
+                    <p class="fw-bold mb-0 p-2">Please Upload a Picture</p>
                     <input class="p-2 mx-auto" type="file" id="teacher_pic" name="teacher_pic">
                 </div>
                 <input name="submit" class="mt-3 mx-auto fw-bold custom-btn-1" type="submit" value="Update">
