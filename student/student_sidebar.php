@@ -10,9 +10,9 @@
         <div class="profile_content">
             <div class="profile">
                 <div class="profile_details">
-                    <img src="../images/profile.jpg" alt="">
+                    <img src="../images/student/<?php echo $std['image']; ?>" alt="">
                     <div class="name_job text-center">
-                        <div class="name fw-bold fs-4 py-2">Rakib Hasan</div>
+                        <div class="name fw-bold fs-4 py-2"><?php echo $std['name']; ?></div>
                         <div class="job">Student</div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
         </div>
         <!-- d-flex align-items-center justify-content-start -->
         <div id="log_out" class="">
-            <a class="log-out py-2 px-4" href="">Log Out<i class="fas fa-sign-out ps-3"></i></a>
+            <a class="log-out py-2 px-4" href="../backend/logout.php">Log Out<i class="fas fa-sign-out ps-3"></i></a>
         </div>
         </div>
 </div>
