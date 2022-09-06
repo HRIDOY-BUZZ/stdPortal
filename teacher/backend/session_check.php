@@ -4,7 +4,6 @@
     session_start();
     if($_SESSION['user'] != 'teacher')
     {
-        // echo $_SERVER['HTTP_HOST']."<br>";
         header('Location: /');
     }
     else
