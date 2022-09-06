@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "student_head.php";?>
+<?php 
+    include "student_head.php";
+    $sql    =   "SELECT * FROM `Notice` WHERE 1";
+    $query  =   mysqli_query($conn, $sql);
+    $ntc    =   mysqli_fetch_all($query, MYSQLI_ASSOC);
+?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">
@@ -9,25 +14,31 @@
     <section id="home-container"  class="home-container active-2"">
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Recent Notice</h1>
+            <?php
+            if(!empty($ntc))
+            {
+                foreach($ntc as $n)
+                {
+            ?>
             <div class="my-4">
                 <div class="common-card">
-                    <h3>Admission of Summer 2022</h3>
+                    <h3><?php echo $n['title']; ?></h3>
                     <div class="d-flex flex-column flex-md-row">
-                        <p class="pe-3"><i class="fa-solid fa-calendar-days"></i> Monday,6 June 2022</p>
-                        <a style="text-decoration: none;" class="common-color" href="../images/dummy.pdf" target="_blanck">Download <i class="fa-solid fa-file-pdf ps-1"></i></a>
+                        <p class="pe-3">
+                            <i class="fa-solid fa-calendar-days"></i> 
+                            <?php echo date("d-M-Y", strtotime($n['created_at'])); ?>
+                        </p>
+                        <a style="text-decoration: none;" class="common-color" href="../files/notice/<?php echo $n['notice']; ?>" target="_blanck">
+                            Download 
+                            <i class="fa-solid fa-file-pdf ps-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-
-            <div class="my-4">
-                <div class="common-card">
-                    <h3>Admission of Summer 2022</h3>
-                    <div class="d-flex flex-column flex-md-row">
-                        <p class="pe-3"><i class="fa-solid fa-calendar-days"></i> Monday,6 June 2022</p>
-                        <a style="text-decoration: none;" class="common-color" href="../images/dummy.pdf" target="_blanck">Download <i class="fa-solid fa-file-pdf ps-1"></i></a>
-                    </div>
-                </div>
-            </div>
+            <?php
+                }
+            }
+            ?>
         </div>
     </section>
 
