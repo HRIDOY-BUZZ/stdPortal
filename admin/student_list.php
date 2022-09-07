@@ -31,7 +31,7 @@
                 <div class="common-card row my-2 justify-content-between align-items-center">
                     <div class="col col-10 row justify-content-evenly align-items-center">
                         <div class="col col-8 col-lg-2">
-                            <img class="w-100" src="../images/profile.jpg" alt="">
+                            <img class="w-100" src="../images/student/<?php echo $s['image']; ?>" alt="">
                         </div>
                         <div class="col col-8 col-lg-2">
                             <p><span class="fw-bold pe-1">Name:</span><?php echo $s['name']; ?></p>
