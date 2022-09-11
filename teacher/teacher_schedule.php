@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php include "teacher_head.php";?>
+<?php
+    include "teacher_head.php";
+    include "../backend/functions.php";
+    include "backend/teacher_schedule.php";
+?>
 <body class="">
 <?php include "../header_nav.php";?>
     <section class="header-container">
@@ -29,65 +33,81 @@
                 center:'title',
                 right:'month,agendaWeek,agendaDay,listWeek'
             },
-            defaultDate:'2022-06-13',
+            defaultDate:'<?php echo date("Y-m-d")?>',
             navLinks:true,// can click day/week names to navigate views
             editable:true,
             eventLimit:true,// allow "more" link when too many events
             events: [
-                {
-                title:'All Day Event',
-                start:'2022-06-01',
-                },
-                {
-                title:'Long Event',
-                start:'2022-06-07',
-                end:'2022-06-10'
-                },
-                {
-                id: 999,
-                title:'Repeating Event',
-                start:'2022-06-09T16:00:00'
-                },
-                {
-                id: 999,
-                title:'Repeating Event',
-                start:'2022-06-16T16:00:00'
-                },
-                {
-                title:'Conference',
-                start:'2022-06-11',
-                end:'2022-06-13'
-                },
-                {
-                title:'Meeting',
-                start:'2022-06-12T10:30:00',
-                end:'2022-06-12T12:30:00'
-                },
-                {
-                title:'Lunch',
-                start:'2022-06-12T12:00:00'
-                },
-                {
-                title:'Meeting',
-                start:'2022-06-12T14:30:00'
-                },
-                {
-                title:'Happy Hour',
-                start:'2022-06-12T17:30:00'
-                },
-                {
-                title:'Dinner',
-                start:'2022-06-12T20:00:00'
-                },
-                {
-                title:'Birthday Party',
-                start:'2022-06-13T07:00:00'
-                },
-                {
-                title:'Click for Google',
-                url:'http://google.com/',
-                start:'2022-06-28'
-                }
+                <?php
+                // dd($shdl);
+                    $i = 1;
+                    foreach($shdl as $s)
+                    {
+                ?>
+                    {
+                    id: '<?php echo $s->course_code; ?>',
+                    title: '<?php echo $s->course_name; ?>',
+                    start: '<?php echo $s->date; ?>'
+                    }
+                <?php
+                        if($i<count($shdl))
+                        {
+                            echo ",";
+                            $i++;
+                        }
+                    }
+                ?>
+                
+            // {
+            // title:'Long Event',
+            // start:'2022-06-07',
+            // end:'2022-06-10'
+            // },
+            // {
+            // id: 999,
+            // title:'Repeating Event',
+            // start:'2022-06-09T16:00:00'
+            // },
+            // {
+            // id: 999,
+            // title:'Repeating Event',
+            // start:'2022-06-16T16:00:00'
+            // },
+            // {
+            // title:'Conference',
+            // start:'2022-06-11',
+            // end:'2022-06-13'
+            // },
+            // {
+            // title:'Meeting',
+            // start:'2022-06-12T10:30:00',
+            // end:'2022-06-12T12:30:00'
+            // },
+            // {
+            // title:'Lunch',
+            // start:'2022-06-12T12:00:00'
+            // },
+            // {
+            // title:'Meeting',
+            // start:'2022-06-12T14:30:00'
+            // },
+            // {
+            // title:'Happy Hour',
+            // start:'2022-06-12T17:30:00'
+            // },
+            // {
+            // title:'Dinner',
+            // start:'2022-06-12T20:00:00'
+            // },
+            // {
+            // title:'Birthday Party',
+            // start:'2022-06-13T07:00:00'
+            // },
+            // {
+            // title:'Click for Google',
+            // url:'http://google.com/',
+            // start:'2022-06-28'
+            // }
             ]
         });
 
