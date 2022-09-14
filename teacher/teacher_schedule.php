@@ -14,13 +14,13 @@
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Class Schedule List</h1>
             <div class="container alerts">
-                <?php
-                    if(!empty($shdl))
-                    {
-                        foreach($shdl as $s)
-                        {
-                ?>
             </div>
+            <?php
+                if(!empty($shdl))
+                {
+                    foreach($shdl as $s)
+                    {
+            ?>
             <div class="my-4">
                 <div class="common-card d-flex justify-content-between align-items-center">
                     <div>
@@ -44,13 +44,6 @@
                                 <?php echo $s['duration']; ?> hrs
                             </p>
                         </div>
-                    </div>
-                    <div class="delete-edit-container">
-                        <form method="post" style="display: contents;width: fit-content;">
-                            <button type="submit" name="delete" id="delete" class="btn text-danger" value="<?php echo $s['id']; ?>">
-                                <i class="fas fa-trash-alt px-0 px-lg-2"></i>
-                            </button>
-                        </form>
                     </div>
                 </div>
             </div>

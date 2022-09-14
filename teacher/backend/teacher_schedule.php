@@ -6,5 +6,5 @@
                 AND `Schedule`.`tchr_id` = $id";
     $query  =   mysqli_query($conn, $sql);
     $shdl    =   mysqli_fetch_all($query, MYSQLI_ASSOC);
-    dd($shdl);
+    // dd($shdl);
 ?>
