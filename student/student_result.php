@@ -28,7 +28,7 @@
                 <?php
                     foreach($rslt as $r){
                 ?>
-                <a class="d-block common-card col col-12 col-lg-5" style="text-decoration: none; color:black;" href="result_details.php">
+                <a class="d-block common-card col col-12 col-lg-5" style="text-decoration: none; color:black;" href="">
                     <ul>
                         <li class="fw-bold">
                             <?php
@@ -45,27 +45,6 @@
                 <?php
                     }
                 ?>
-                <!-- <a class="d-block common-card col col-12 col-lg-5" style="text-decoration: none; color:black;" href="result_details.php">
-                    <ul>
-                        <li class="fw-bold">2nd Semester</li>
-                        <li class=""><span class="fw-bold">Obtained:</span>3.20 <span class="fw-bold ps-3">Highest:</span>3.68</li>
-                    </ul>
-                </a>
-
-                <a class="d-block common-card col col-12 col-lg-5" style="text-decoration: none; color:black;" href="result_details.php">
-                    <ul>
-                        <li class="fw-bold">3rd Semester</li>
-                        <li class=""><span class="fw-bold">Obtained:</span>2.86 <span class="fw-bold ps-3">Highest:</span>3.66</li>
-                    </ul>
-                </a>
-
-                <a class="d-block common-card col col-12 col-lg-5" style="text-decoration: none; color:black;" href="result_details.php">
-                    <ul>
-                        <li class="fw-bold">4th Semester</li>
-                        <li class=""><span class="fw-bold">Obtained:</span>3.33 <span class="fw-bold ps-3">Highest:</span>3.32</li>
-                    </ul>
-                </a> -->
-
             <div>
 
         </div>
