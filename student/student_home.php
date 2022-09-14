@@ -52,8 +52,8 @@
                                     <th class="w-50" scope="row">Gender:</th>
                                     <td>
                                         <?php
-                                            if($tchr['gender'] == 1) echo "Male";
-                                            else if($tchr['gender'] == 2) echo "Female";
+                                            if($std['gender'] == 1) echo "Male";
+                                            else if($std['gender'] == 2) echo "Female";
                                             else echo "Other";
                                         ?>
                                     </td>

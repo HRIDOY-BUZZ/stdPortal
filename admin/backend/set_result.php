@@ -12,16 +12,16 @@
     if($_POST['submit'])
     {
         // dd($_POST);
-        $course     = $_POST['course'];
-        // $semester   = $_POST['semester'];
+        // $course     = $_POST['course'];
+        $semester   = $_POST['semester'];
         // $year       = $_POST['year'];
         $student    = $_POST['student'];
         $ocg        = $_POST['o_cgpa'];
         $hcg        = $_POST['h_cgpa'];
         
 
-            $sql = "INSERT INTO `Results`(`course_id`, `std_id`, `grade`, `highest`) 
-                    VALUES ($course, $student, $ocg, $hcg)";
+            $sql = "INSERT INTO `Results`(`semester`, `std_id`, `grade`, `highest`) 
+                    VALUES ($semester, $student, $ocg, $hcg)";
             
             if(!mysqli_query($conn, $sql))
             {

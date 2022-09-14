@@ -22,34 +22,20 @@
                 ?>
             </div>
                 <form class="w-75 mx-auto" action="" method="post">
-                    <div class="form-floating mb-3">
-                        <select class="form-select py-2" id="course" name="course" required>
-                            <option selected>- - Select Course</option>
-                            <?php
-                                if(!empty($crs))
-                                {
-                                    foreach($crs as $c)
-                                    {
-                                        echo '<option value="'.$c['id'].'">'.$c['course_name'].'</option>';
-                                    }
-                                }
-                            ?>
-                        </select>
-                    </div>
 
-                    <!-- <div class="form-floating mb-3">
+                    <div class="form-floating mb-3">
                         <select class="form-select py-2" id="semester" name="semester" required>
                             <option selected>- - Select Semester</option>
-                            <option value="1">Spring</option>
-                            <option value="2">Summer</option>
-                            <option value="3">Fall</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="5">5th</option>
+                            <option value="6">6th</option>
+                            <option value="7">7th</option>
+                            <option value="8">8th</option>
                         </select>
                     </div>
-
-                    <div class="form-floating mb-3">
-                        <input type="number" class="form-control" name="year" id="year" min="2000" max="3000" placeholder=" " required>
-                        <label for="year">Year</label>
-                    </div> -->
 
                     <div class="form-floating mb-3">
                         <select class="form-select py-2" id="student" name="student" required>
