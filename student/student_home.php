@@ -50,7 +50,13 @@
                                 </tr>
                                 <tr>
                                     <th class="w-50" scope="row">Gender:</th>
-                                    <td><?php echo $std['gender']; ?></td>
+                                    <td>
+                                        <?php
+                                            if($tchr['gender'] == 1) echo "Male";
+                                            else if($tchr['gender'] == 2) echo "Female";
+                                            else echo "Other";
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="w-50" scope="row">Blood Group:</th>

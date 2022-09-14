@@ -3,7 +3,7 @@
 <?php 
     include "teacher_head.php";
     include "../backend/functions.php";
-    include "backend/profile.php";
+    // include "backend/profile.php";
     // dd($tchr);
 ?>
 <body class="">
@@ -55,7 +55,13 @@
                                 </tr>
                                 <tr>
                                     <th class="w-50" scope="row">Gender:</th>
-                                    <td><?php echo $tchr['gender']; ?></td>
+                                    <td>
+                                        <?php
+                                        if($tchr['gender'] == 1) echo "Male";
+                                        else if($tchr['gender'] == 2) echo "Female";
+                                        else echo "Other";
+                                        ?>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th class="w-50" scope="row">Blood Group:</th>

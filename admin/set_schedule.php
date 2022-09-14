@@ -40,9 +40,14 @@
                     <div class="form-floating mb-3">
                         <select class="form-select py-2" id="semester" name="semester" required>
                             <option selected>- - Select Semester</option>
-                            <option value="1">Spring</option>
-                            <option value="2">Summer</option>
-                            <option value="3">Fall</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="5">5th</option>
+                            <option value="6">6th</option>
+                            <option value="7">7th</option>
+                            <option value="8">8th</option>
                         </select>
                     </div>
 

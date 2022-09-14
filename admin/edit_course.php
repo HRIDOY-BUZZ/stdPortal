@@ -40,27 +40,15 @@
                     <div class="form-floating mb-3">
                         <p class="fw-bold">Semester</p>
                         <select class="form-select py-2" id="semester" name="semester" required>
-                            <?php
-                                if($crs['semester'] == 1)
-                                {
-                                    echo '<option value="1" selected>Spring</option>
-                                    <option value="2">Summer</option>
-                                    <option value="3">Fall</option>';
-                                }
-                                else if($crs['semester'] == 2)
-                                {
-                                    echo '<option value="1">Spring</option>
-                                    <option value="2" selected>Summer</option>
-                                    <option value="3">Fall</option>';
-                                }
-                                else
-                                {
-                                    echo '<option value="1">Spring</option>
-                                    <option value="2">Summer</option>
-                                    <option value="3" selected>Fall</option>';
-                                }
-                            ?>
-                            
+                        <option selected>- - Select Semester</option>
+                            <option value="1">1st</option>
+                            <option value="2">2nd</option>
+                            <option value="3">3rd</option>
+                            <option value="4">4th</option>
+                            <option value="5">5th</option>
+                            <option value="6">6th</option>
+                            <option value="7">7th</option>
+                            <option value="8">8th</option>
                         </select>
                     </div>
 

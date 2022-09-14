@@ -39,12 +39,14 @@
                             <p class="pe-3">
                                 <span class="fw-bold">Semester:</span> 
                                 <?php
-                                    if($c['semester'] == 1)
-                                        echo "Spring";
-                                    else if($c['semester'] == 2)
-                                        echo "Summer";
-                                    else
-                                        echo "Fall";
+                                    if($b['semester'] == 1)
+                                    echo "1st";
+                                else if($b['semester'] == 2)
+                                    echo "2nd";
+                                else if($b['semester'] == 3)
+                                    echo "3rd";
+                                else
+                                    echo $b['semester']."th";
                                 ?>
                             </p>
                             <br>

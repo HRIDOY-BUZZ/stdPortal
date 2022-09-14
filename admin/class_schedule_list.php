@@ -10,7 +10,7 @@
     <section class="header-container">
         <?php include "admin_sidebar.php";?>
     </section>
-    <section id="home-container"  class="home-container active-2"">
+    <section id="home-container"  class="home-container active-2">
         <div class="px-4 py-5 mt-4">
             <h1 class="common-background-2 p-2 text-center">Class Schedule List</h1>
             <div class="container alerts">
