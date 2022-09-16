@@ -10,5 +10,6 @@
     {
         $total += $r['grade'];
     }
-    $cgpa = $total/count($rslt);
+    if($total>0)
+        $cgpa = $total/count($rslt);
 ?>
