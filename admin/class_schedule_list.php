@@ -19,15 +19,16 @@
                     {
                         echo message($type, $msg);
                     }
-
+                ?>
+            </div>
+            <div class="my-4">
+                <?php
                     if(!empty($schedules))
                     {
                         foreach($schedules as $s)
                         {
                 ?>
-            </div>
-            <div class="my-4">
-                <div class="common-card d-flex justify-content-between align-items-center">
+                <div class="common-card d-flex justify-content-between align-items-center mt-4">
                     <div>
                         <h3><?php echo $s['course']; ?></h3>
                         <div class="d-flex flex-column flex-md-row">
@@ -58,9 +59,11 @@
                         </form>
                     </div>
                 </div>
+                <?php
+                        }
+                ?>
             </div>
             <?php
-                        }
                     }
             ?>
         </div>
