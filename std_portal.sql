@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 19, 2022 at 10:47 AM
+-- Generation Time: Sep 19, 2022 at 07:23 PM
 -- Server version: 8.0.30-0ubuntu0.22.04.1
 -- PHP Version: 8.1.2
 
@@ -37,14 +37,6 @@ CREATE TABLE `Board_Q` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Board_Q`
---
-
-INSERT INTO `Board_Q` (`id`, `semester`, `year`, `course`, `question`, `updated_at`, `created_at`) VALUES
-(1, 1, 2022, 'Test Subject', 'Test Subject_1_2022.pdf', '2022-09-04 21:59:21', '2022-09-04 21:59:21'),
-(3, 1, 2020, 'CSE', 'CSE_1_2020.pdf', '2022-09-06 11:46:52', '2022-09-06 11:46:52');
-
 -- --------------------------------------------------------
 
 --
@@ -63,13 +55,6 @@ CREATE TABLE `Courses` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Courses`
---
-
-INSERT INTO `Courses` (`id`, `course_name`, `course_code`, `credits`, `semester`, `year`, `duration`, `updated_at`, `created_at`) VALUES
-(4, 'Test Course', 'Test101', 4, 3, 2022, 4, '2022-09-19 09:58:52', '2022-09-19 09:58:52');
-
 -- --------------------------------------------------------
 
 --
@@ -83,13 +68,6 @@ CREATE TABLE `Notice` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `Notice`
---
-
-INSERT INTO `Notice` (`id`, `title`, `notice`, `updated_at`, `created_at`) VALUES
-(4, 'Breaking news', 'Breaking news1662486501.pdf', '2022-09-06 11:48:21', '2022-09-06 11:48:21');
 
 -- --------------------------------------------------------
 
@@ -107,17 +85,6 @@ CREATE TABLE `Results` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Results`
---
-
-INSERT INTO `Results` (`id`, `semester`, `std_id`, `grade`, `highest`, `updated_at`, `created_at`) VALUES
-(2, 2, 14, 3.2, 3.9, '2022-09-05 00:13:43', '2022-09-05 00:13:43'),
-(3, 3, 16, 3.2, 3.8, '2022-09-06 11:47:41', '2022-09-06 11:47:41'),
-(4, 1, 16, 3.1, 3.8, '2022-09-13 22:41:48', '2022-09-13 22:41:48'),
-(9, 4, 16, 3.4, 3.6, '2022-09-13 23:12:20', '2022-09-13 23:12:20'),
-(10, 2, 16, 3.2, 3.3, '2022-09-13 23:13:14', '2022-09-13 23:13:14');
-
 -- --------------------------------------------------------
 
 --
@@ -134,16 +101,6 @@ CREATE TABLE `Schedule` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `Schedule`
---
-
-INSERT INTO `Schedule` (`id`, `course_id`, `tchr_id`, `date`, `time`, `duration`, `updated_at`, `created_at`) VALUES
-(3, 1, 15, '2022-09-14', '00:34:00', 2, '2022-09-06 02:06:09', '2022-09-06 02:06:09'),
-(4, 3, 17, '2022-09-07', '12:10:00', 2, '2022-09-06 11:44:23', '2022-09-06 11:44:23'),
-(5, 1, 15, '2022-09-17', '11:28:00', 1, '2022-09-10 11:25:27', '2022-09-10 11:25:27'),
-(6, 4, 15, '2022-09-20', '00:34:00', 2, '2022-09-19 10:33:45', '2022-09-19 10:33:45');
 
 -- --------------------------------------------------------
 
@@ -176,15 +133,6 @@ CREATE TABLE `Std_schedule` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Std_schedule`
---
-
-INSERT INTO `Std_schedule` (`id`, `std_id`, `course_id`, `shdl_id`, `semester`, `updated_at`, `created_at`) VALUES
-(1, 14, 1, 3, 1, '2022-09-13 22:21:04', '2022-09-06 02:19:49'),
-(2, 14, 1, 4, 1, '2022-09-13 22:21:08', '2022-09-06 02:21:04'),
-(3, 16, 3, 5, 3, '2022-09-13 22:21:12', '2022-09-06 11:45:26');
-
 -- --------------------------------------------------------
 
 --
@@ -212,14 +160,6 @@ CREATE TABLE `Students` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Students`
---
-
-INSERT INTO `Students` (`id`, `name`, `image`, `father`, `mother`, `nid`, `birthreg`, `std_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
-(2, 'Test Student', '236256456345.jpg', 'Al-Amin Islam', 'dsfghsdfg', 236256456345, 3456345634563456, 14, '1', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '123-45-678', 'dfgds@dfg.fgi', '', '2022-09-05 01:32:05', '2022-08-30 22:44:12'),
-(3, 'dipu', '123412341234.jpg', 'sdfasdf', 'zXCsDd', 123412341234, 12341234123412, 16, '1', 'A-', '214asdf', 'adfvasd', 'gfxdgh', '01677472320', 'student@email.com', '', '2022-09-13 23:13:59', '2022-09-06 09:25:48');
-
 -- --------------------------------------------------------
 
 --
@@ -235,13 +175,6 @@ CREATE TABLE `Tchr_question` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-
---
--- Dumping data for table `Tchr_question`
---
-
-INSERT INTO `Tchr_question` (`id`, `tchr_id`, `shdl_id`, `duration`, `question`, `updated_at`, `created_at`) VALUES
-(3, 15, 4, 2, '4_1663584191.pdf', '2022-09-19 10:43:11', '2022-09-19 10:43:11');
 
 -- --------------------------------------------------------
 
@@ -270,14 +203,6 @@ CREATE TABLE `Teachers` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
---
--- Dumping data for table `Teachers`
---
-
-INSERT INTO `Teachers` (`id`, `name`, `father`, `mother`, `image`, `nid`, `birthreg`, `tchr_id`, `gender`, `blood`, `religion`, `present_addr`, `parma_addr`, `phone`, `email`, `interests`, `updated_at`, `created_at`) VALUES
-(9, 'Test Teacher', 'fcghfxcgh', 'fghfcgh', '236256456345.jpg', 236256456345, 3456345634563456, 15, '2', 'gfjhf', 'fgjhfh', 'fgjhfgh', 'fgjhfgjh', '01999999999', 'example@email.com', '', '2022-09-06 01:27:20', '2022-09-01 04:08:21'),
-(10, 'asdfasdf', 'sdfgsdfvdsfv', 'xgjnxcfgh', '234523452325.jpg', 234523452325, 234523452345234523, 17, '1', 'A-', 'Islam', 'adfgasdf dfgsdf', 'dfasdf dfsdafg', '01677472320', 'admin@splendor.com', 'sdasdfsaf', '2022-09-06 11:33:52', '2022-09-06 11:33:52');
-
 -- --------------------------------------------------------
 
 --
@@ -300,11 +225,7 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`id`, `user_type`, `name`, `email`, `password`, `status`, `updated_at`, `created_at`) VALUES
-(1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-09 05:35:39', '2022-07-09 05:35:39'),
-(14, 'student', 'Orlando International Airport', 'dfgds@dfg.fgi', '12345678', 1, '2022-08-30 22:44:12', '2022-08-30 22:44:12'),
-(15, 'teacher', 'Test Teacher', 'example@email.com', '12345678', 1, '2022-09-06 01:27:11', '2022-09-01 04:08:20'),
-(16, 'student', 'dipu', 'student@email.com', '12345678', 1, '2022-09-06 09:25:48', '2022-09-06 09:25:48'),
-(17, 'teacher', 'asdfasdf', 'admin@splendor.com', '12345678', 1, '2022-09-06 11:33:52', '2022-09-06 11:33:52');
+(1, 'admin', 'Super Admin', 'admin@email.com', 'admin123', 1, '2022-07-08 23:35:39', '2022-07-08 23:35:39');
 
 --
 -- Indexes for dumped tables
@@ -405,31 +326,31 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Board_Q`
 --
 ALTER TABLE `Board_Q`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Courses`
 --
 ALTER TABLE `Courses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Notice`
 --
 ALTER TABLE `Notice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Results`
 --
 ALTER TABLE `Results`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Schedule`
 --
 ALTER TABLE `Schedule`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Std_exam`
@@ -441,25 +362,25 @@ ALTER TABLE `Std_exam`
 -- AUTO_INCREMENT for table `Std_schedule`
 --
 ALTER TABLE `Std_schedule`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Students`
 --
 ALTER TABLE `Students`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Tchr_question`
 --
 ALTER TABLE `Tchr_question`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Teachers`
 --
 ALTER TABLE `Teachers`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `Users`
